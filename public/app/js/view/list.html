@@ -1,0 +1,26 @@
+<div class="row">
+	<a href="#/admin" class="thumb">
+		<button class="btn btn-primary" type="button">Admin</button>
+	</a>
+</div>
+<div class="row">
+	<div class="col-md-3" ng-repeat="poll in vm.polls">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3>{{poll.title}}</h3>
+			</div>
+			<div class="panl-body">
+				<table class="table table-striped">
+					<tr ng-repeat="option in poll.polloptions">
+						<td>{{option.title}}</td>
+						<td>
+							<button class="btn btn-primary" type="button" ng-click="vm.addVote(option)">
+								Vote <span class="badge">{{option.vote}}</span>
+							</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

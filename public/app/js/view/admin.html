@@ -1,0 +1,35 @@
+<div class="row">
+	<div class="col-md-3">
+		<div class="panel panel-default">
+			<div class="panel-heading"><h3>Poll Admin</h3></div>
+			<div class="panel-body">
+				<input type="text" ng-model="vm.newpoll.title">
+				<button class="btn btn-primary" type="button" ng-click="vm.addPoll()">Add Poll</button>
+				<div class="row">
+					<a href="#/view" class="thumb"><button class="btn btn-primary" type="button">List</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3" ng-repeat="poll in vm.polls">
+		<div class="panel panel-default">
+			<div class="panel-heading"><h3>{{poll.title}}</h3> <button class="btn btn-danger" type="button" ng-click="vm.removePoll(poll)">Remove</button></div>
+			<div class="panel-body">
+				<table class="table table-striped">
+					<tr ng-repeat="option in poll.polloptions">
+						<td>{{option.title}}</td>
+						<td><button class="btn btn-danger" type="button" ng-click="vm.removeOption(option, poll)"> Remove</button></td>
+					</tr>
+					<tr>
+						<td>
+							<input type="text" ng-model="vm.newoption.title" name="title">
+						</td>
+						<td>
+							<button class="btn btn-primary" type="button" ng-click="vm.addOption(poll,vm.newoption)">Add Option</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
